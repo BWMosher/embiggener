@@ -1,0 +1,197 @@
+body {
+  height: 100%;
+  width: 100%;
+  --base03: #002b36;
+  --base02: #073642;
+  --base01: #586e75;
+  --base00: #657b83;
+  --base0: #839496;
+  --base1: #93a1a1;
+  --base2: #eee8d5;
+  --base3: #fdf6e3;
+  --yellow: #b58900;
+  --orange: #cb4b16;
+  --red: #dc322f;
+  --magenta: #d33682;
+  --violet: #6c71c4;
+  --blue: #268bd2;
+  --cyan: #2aa198;
+  --green: #859900;
+  background-color: var(--base03);
+  color:var(--base0);
+  --curveradius: 5px;
+  --scale: 100%;
+  font-size: var(--scale);
+  --textpadradius: .25em;
+  margin:0;
+}
+
+
+body .light-mode, {
+  background-color: var(--base3);
+  color:var(--base00);
+}
+
+h1, h2, h3, input{
+  margin-block-start: 0;
+  margin-block-end: 0;
+  color: var(--base01);
+}
+
+.light-mode h1,.light-mode h2 ,.light-mode h3 , .light-mode input{
+  color: var(--base1);
+}
+
+img {
+  height: 25vh;
+}
+
+a,button,input,select,textarea   {
+  color: var(--base1);
+  background-color: var(--base02);
+  font-size: inherit;
+}
+
+.light-mode a  ,.light-mode button, .light-mode select, .light-mode textarea, .light-mode input  {
+  color: var(--base01);
+  background-color: var(--base2);
+}
+
+.light-mode {
+  background-color: var(--base3);
+  color:var(--base01);  
+}
+
+.light-mode h1, .light-mode h2, .light-mode h3 {
+  color: var(--base1);
+}
+
+.light-mode .emphasis, .light-mode em, .light-mode strong, .light-mode select {
+  background-color: var(--base2);
+  color: var(--base01);
+}
+
+.emphasis, em, strong {
+  background-color: var(--base02);
+  color: var(--base1);
+  border-radius: var(--curveradius);
+  padding:2px;
+}
+
+.red, .light-mode .red   {
+  color: var(--red);
+}
+
+.orange, .light-mode .orange {
+  color: var(--orange);
+}
+
+.yellow, .light-mode .yellow  {
+  color: var(--yellow);
+}
+
+.green, .light-mode .green  {
+  color: var(--green);
+}
+
+.cyan, .light-mode .cyan   {
+  color: var(--cyan);
+}
+
+.blue, .light-mode .blue   {
+  color: var(--blue);
+}
+
+.violet, .light-mode .violet{
+  color: var(--violet);
+}
+
+.magenta, .light-mode .magenta   {
+  color: var(--magenta);
+}
+
+ul {
+  list-style-type:square;  
+  line-height: 1.3em;
+}
+
+li {
+  border-radius: var(--curveradius);
+  padding: var(--textpadradius);
+}
+
+.fancy {
+  font-variant: small-caps;
+}
+
+.problem{
+  text-decoration-line: underline;
+  text-decoration-color: var(--red);
+  text-decoration-style: wavy;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+button {
+  display:inline;
+  width: 3em;
+  font-size: inherit;
+}
+
+.flex-container {
+  display: flex;
+  height: 95vh;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+  text-align: center;
+}
+
+
+button, select, input {
+  border-radius: var(--curveradius);
+  border-color: var(--base1);
+}
+
+.light-mode button, .light-mode select, .light-mode input {
+  border-color: var(--base01);
+}
+
+#inputcontainer, #output {
+  padding: var(--textpadradius);
+  width: 1fr;
+  height: 1fr;
+}
+
+#output {
+  flex: 2 1 auto;
+  border-radius: var(--curveradius);
+  padding:0;
+  display: flex;
+  overflow-y: scroll;
+  border:0;
+  justify-content: center;
+  //word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  width: 100vw;
+}
+
+.smallen {
+  flex: 0 4 auto;
+}
+
+  /*
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+ Hide scrollbar for IE, Edge and Firefox 
+body {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  /* Firefox 
+*/

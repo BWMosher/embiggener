@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload=initialize()>
+  <div class=flex-container>
+    <textarea type="text" onkeyup="updateOutput()" onblur="updateOutput()" id=inputbox 
+      placeholder="Type here" autofocus></textarea>
+    <div>
+      <label for="scale">Scale?</label>
+      <input onchange="callScale()" type="number" value="3" id="scale" max="40" min=".4" step=".2">
+      <label for="outcolor">Outcolor?</label>
+      <select onchange="colorChange()" name="outcolor" id="outcolor">
+        <option value="">Plain Text</option>
+        <option value="orange">Orange</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+        <option value="cyan">Cyan</option>
+        <option value="blue">Blue</option>
+        <option value="violet">Violet</option>
+        <option value="magenta">Magenta</option>
+        <option value="red">Red</option>
+      </select>
+      <label for="fontfam">Font?</label>
+      <select onchange="fontChange()" name="fontfam" id="fontfam">       
+        <option value="serif">serif</option>
+        <option value="ui-serif">ui-serif</option>
+        <option value="monospace">monospace</option>
+        <option value="ui-monospace">ui-monospace</option>
+        <option value="sans-serif">sans-serif</option>
+        <option value="ui-rounded">ui-rounded</option>
+        <option value="ui-sans-serif">ui-sans-serif</option>
+        <option value="cursive">cursive</option>
+        <option value="fantasy">fantasy</option>
+      </select> 
+    </div>
+        <div id="output"></div>
+        <p class="smallen">Toggle dark/light: <button onclick=toggleBG()>🎚</button> Write to URL: <button onclick=writeString()>💾</button></p>
+        <div class="smallen yellow">Embiggener By <span class="violet fancy">BWMosher</span> with help from <span class="fancy blue">V.V.</span> (<a
+            href="https://linktr.ee/bwmosher">🔗</a>)</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
