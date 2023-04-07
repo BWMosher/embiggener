@@ -19,31 +19,34 @@ body {
   --green: #859900;
   background-color: var(--base03);
   color:var(--base0);
+  accent-color: var(--base1);
   --curveradius: 5px;
   --scale: 100%;
   font-size: var(--scale);
   --textpadradius: .25em;
   margin:0;
+  font-family: sans-serif;
 }
-
 
 body .light-mode, {
   background-color: var(--base3);
   color:var(--base00);
+  accent-color: var(--base01);
 }
 
-h1, h2, h3, input{
+input{
   margin-block-start: 0;
   margin-block-end: 0;
+  color: var(--base1);
+  caret-color: var(--red);
+}
+
+.light-mode input{
   color: var(--base01);
 }
 
-.light-mode h1,.light-mode h2 ,.light-mode h3 , .light-mode input{
-  color: var(--base1);
-}
-
-img {
-  height: 25vh;
+textarea {
+  resize: none;
 }
 
 a,button,input,select,textarea   {
@@ -62,20 +65,16 @@ a,button,input,select,textarea   {
   color:var(--base01);  
 }
 
-.light-mode h1, .light-mode h2, .light-mode h3 {
-  color: var(--base1);
-}
-
-.light-mode .emphasis, .light-mode em, .light-mode strong, .light-mode select {
-  background-color: var(--base2);
-  color: var(--base01);
-}
-
-.emphasis, em, strong {
+.emphasis{
   background-color: var(--base02);
   color: var(--base1);
   border-radius: var(--curveradius);
   padding:2px;
+}
+
+.light-mode .emphasis {
+  background-color: var(--base2);
+  color: var(--base01);
 }
 
 .red, .light-mode .red   {
@@ -110,28 +109,64 @@ a,button,input,select,textarea   {
   color: var(--magenta);
 }
 
-ul {
-  list-style-type:square;  
-  line-height: 1.3em;
+.solar03 {
+  color: var(--base03);
+}
+.light-mode .solar03 {
+  color: var(--base3);
 }
 
-li {
-  border-radius: var(--curveradius);
-  padding: var(--textpadradius);
+.solar02 {
+  color: var(--base02);
+}
+.light-mode .solar02 {
+  color: var(--base2);
+}
+
+.solar01 {
+  color: var(--base01);
+}
+.light-mode .solar01 {
+  color: var(--base1);
+}
+
+.solar00 {
+  color: var(--base00);
+}
+.light-mode .solar00 {
+  color: var(--base0);
+}
+
+.solar0 {
+  color: var(--base0);
+}
+.light-mode .solar0 {
+  color: var(--base00);
+}
+
+.solar1 {
+  color: var(--base1);
+}
+.light-mode .solar1 {
+  color: var(--base01);
+}
+
+.solar2 {
+  color: var(--base2);
+}
+.light-mode .solar2 {
+  color: var(--base02);
+}
+
+.solar3 {
+  color: var(--base3);
+}
+.light-mode .solar3 {
+  color: var(--base03);
 }
 
 .fancy {
   font-variant: small-caps;
-}
-
-.problem{
-  text-decoration-line: underline;
-  text-decoration-color: var(--red);
-  text-decoration-style: wavy;
-}
-
-.underlined {
-  text-decoration: underline;
 }
 
 button {
@@ -140,14 +175,23 @@ button {
   font-size: inherit;
 }
 
-.flex-container {
+#maincontainer {
   display: flex;
-  height: 95vh;
+  height: 100%;
   width: 100%;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: stretch;
   text-align: center;
+}
+
+#controls {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 0.7em;
+  align-items: center;
 }
 
 
@@ -160,38 +204,84 @@ button, select, input {
   border-color: var(--base01);
 }
 
-#inputcontainer, #output {
+.smol {
+  font-size: 0.7em
+}
+
+#inputbox, #output {
   padding: var(--textpadradius);
-  width: 1fr;
-  height: 1fr;
+}
+
+#inputbox {
+  height:3em;
+  font-family: monospace;
 }
 
 #output {
   flex: 2 1 auto;
   border-radius: var(--curveradius);
   padding:0;
+  /*
   display: flex;
+  justify-content: center;*/
   overflow-y: scroll;
   border:0;
-  justify-content: center;
-  //word-wrap: break-word;
+  word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: pre-wrap;
   width: 100vw;
+  --a:0deg;
 }
 
-.smallen {
-  flex: 0 4 auto;
+#sparecontainer{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  
 }
 
-  /*
+#scale, #lighttoggle, #sparecontainer{
+  border-style: solid;
+}
 
-body::-webkit-scrollbar {
+div::-webkit-scrollbar, textarea::-webkit-scrollbar {
   display: none;
 }
-
- Hide scrollbar for IE, Edge and Firefox 
-body {
+div, textarea {
   -ms-overflow-style: none;  
-  scrollbar-width: none;  /* Firefox 
-*/
+  scrollbar-width: none;  
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 0%;
+	}
+	50% {
+		background-position: 100% 100%;
+	}
+	100% {
+		background-position: 0% 0%;
+	}
+}
+
+/*this isn't working yet below this line*/
+@property --a{
+  syntax: '<angle>'; 
+  inherits: false;
+  initial-value: 0%; 
+}
+
+
+
+@keyframes spin {
+  0% {
+    --a: 0deg;
+  }
+  50% {
+    --a: 180deg;
+  }
+  100% {
+    --a: 360deg;
+  }
+}
+
